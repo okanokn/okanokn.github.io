@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.54">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,10 +35,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-61661077b8ef3c3db297f235801849d3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/academicons-1.9.2/size.css" rel="stylesheet">
@@ -182,19 +182,19 @@ ul.task-list li input[type="checkbox"] {
 </div></div>
 </div>
 
-<div class="callout callout-style-default callout-note callout-titled" title="TAFRO症候群 指定難病認定嘆願署名のよびかけ">
+<div class="callout callout-style-default callout-note callout-titled" title="TAFRO症候群 指定難病認定嘆願署名">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-TAFRO症候群 指定難病認定嘆願署名のよびかけ
+TAFRO症候群 指定難病認定嘆願署名
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>本件は研究活動とは無関係です． 過日，私の従兄がTAFRO症候群という病で亡くなりました． 症例が少なく，まだ治療法が確立されていない病です． この疾患が指定難病に追加され，治療法の研究や医療費負担の軽減につながるよう，<a href="https://www.eonet.ne.jp/~castleman/index.html">キャッスルマン病患者会</a>さまが，署名活動をされています． 趣旨にご賛同いただける方は，ぜひご署名をお願いいたします． <a href="https://docs.google.com/forms/d/e/1FAIpQLSeEb5chHyP64NSdT9ezGtNE6IvmxK9-2GQXUvlpS0Yz7m8ZNg/viewform">オンライン署名 (Google form)</a></p>
+<p>本件は研究活動とは無関係です． 過日，私の従兄がTAFRO症候群という病で亡くなりました． 症例が少なく，まだ治療法が確立されていない病です． この疾患が国の指定難病に追加され，治療法の研究や医療費負担の軽減につながるよう，<a href="https://www.eonet.ne.jp/~castleman/index.html">キャッスルマン病患者会</a>さまが，署名活動をされています． 趣旨にご賛同いただける方は，ぜひご署名をお願いいたします． <a href="https://docs.google.com/forms/d/e/1FAIpQLSeEb5chHyP64NSdT9ezGtNE6IvmxK9-2GQXUvlpS0Yz7m8ZNg/viewform">オンライン署名 (Google form)</a></p>
 </div>
 </div>
 </div>
@@ -357,8 +357,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -469,7 +467,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
