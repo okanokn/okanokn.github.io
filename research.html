@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-03-19">
 
-<title>WokwiのArduinoシミュレータをVS Codeで動かす – Kunihisa Okano’s page</title>
+<title>Research topics | 研究テーマ – Kunihisa Okano’s page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,63 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../images/biwako.png" rel="icon" type="image/png">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-8b0d694cdd11ff8d3f32e2a9a7b634c3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./images/biwako.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-8b0d694cdd11ff8d3f32e2a9a7b634c3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -122,27 +85,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../publications.html"> 
+    <a class="nav-link" href="./publications.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../lectures.html"> 
+    <a class="nav-link" href="./lectures.html"> 
 <span class="menu-text">Lectures</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../research.html"> 
+    <a class="nav-link active" href="./research.html" aria-current="page"> 
 <span class="menu-text">Research topics</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../theses.html"> 
+    <a class="nav-link" href="./theses.html"> 
 <span class="menu-text">Supervision</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../memo.html"> 
+    <a class="nav-link" href="./memo.html"> 
 <span class="menu-text">Memo</span></a>
   </li>  
 </ul>
@@ -156,42 +119,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#vs-codeをインストールする" id="toc-vs-codeをインストールする" class="nav-link active" data-scroll-target="#vs-codeをインストールする">VS Codeをインストールする</a></li>
-  <li><a href="#arduino-ideをインストールする" id="toc-arduino-ideをインストールする" class="nav-link" data-scroll-target="#arduino-ideをインストールする">Arduino IDEをインストールする</a></li>
-  <li><a href="#wokwiのプロジェクトファイルを準備する" id="toc-wokwiのプロジェクトファイルを準備する" class="nav-link" data-scroll-target="#wokwiのプロジェクトファイルを準備する">Wokwiのプロジェクトファイルを準備する</a></li>
-  <li><a href="#arduino-ideでスケッチをコンパイルする" id="toc-arduino-ideでスケッチをコンパイルする" class="nav-link" data-scroll-target="#arduino-ideでスケッチをコンパイルする">Arduino IDEでスケッチをコンパイルする</a></li>
-  <li><a href="#vs-codeでwokwiシミュレータを起動する" id="toc-vs-codeでwokwiシミュレータを起動する" class="nav-link" data-scroll-target="#vs-codeでwokwiシミュレータを起動する">VS CodeでWokwiシミュレータを起動する</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">WokwiのArduinoシミュレータをVS Codeで動かす</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">arduino</div>
-    <div class="quarto-category">wokwi</div>
-  </div>
-  </div>
+<h1 class="title">Research topics | 研究テーマ</h1>
+</div>
 
 
 
 <div class="quarto-title-meta">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">March 19, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -201,135 +144,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>ブラウザベースのマイコンボードシミュレータ<a href="https://wokwi.com/">Wokwi</a>でコンパイルに時間が掛かって実行できない場合に，ローカル環境でシミュレーションを実行する方法を説明する． <a href="https://docs.wokwi.com/vscode/getting-started">Wokwiの解説ページ</a>に書かれている内容と同じ．</p>
-<section id="vs-codeをインストールする" class="level2">
-<h2 class="anchored" data-anchor-id="vs-codeをインストールする">VS Codeをインストールする</h2>
-<p><a href="https://code.visualstudio.com/">公式サイト</a>からインストーラをダウンロードし，Visual Studio Codeをインストールする．</p>
-<p>つぎに，VS Codeを起動して拡張機能の<a href="https://marketplace.visualstudio.com/items?itemName=Wokwi.wokwi-vscode">Wokwi Simulator</a>をインストールする</p>
-<ol type="1">
-<li><code>Ctrl</code>+<code>Shift</code>+<code>P</code> (<code>Cmd</code>+<code>Shift</code>+<code>P</code>) → 拡張機能をインストール(Extensions: Install Extensions)を選択</li>
-<li>検索ボックスに「Wokwi」を記入</li>
-<li>Wokwi Simulatorを選択してインストールする</li>
-</ol>
-<p><img src="wokwiextension.webp" class="img-fluid"></p>
-<div class="callout callout-style-default callout-note callout-titled" title="VS Codeの日本語化">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-VS Codeの日本語化
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>VS Codeのメニューを日本語化するには，拡張機能の「Japanese Language Pack for Visual Studio Code」をインストールしてから，VS Codeを再起動する． 再起動後に「Change Language and Restart」というボタンが表示されるのでそれを押す．</p>
-</div>
-</div>
-</section>
-<section id="arduino-ideをインストールする" class="level2">
-<h2 class="anchored" data-anchor-id="arduino-ideをインストールする">Arduino IDEをインストールする</h2>
-<p><a href="https://www.arduino.cc/en/software">Arduino IDE</a>をインストールする．</p>
-<ol type="1">
-<li>自分のPC環境に合ったDownload optionを選択する</li>
-<li>任意で寄付するか，寄付せず「JUST DOWNLOAD」からインストーラをダウンロードする</li>
-<li>インストーラを起動してArduino IDEをインストールする</li>
-<li>Arduino IDEを起動して，設定画面(Preference)を開く</li>
-<li>設定タブの「より詳細な情報を表示する」(Show verbose output during)の「コンパイル」(compile)にチェックを入れて「OK」</li>
-</ol>
-</section>
-<section id="wokwiのプロジェクトファイルを準備する" class="level2">
-<h2 class="anchored" data-anchor-id="wokwiのプロジェクトファイルを準備する">Wokwiのプロジェクトファイルを準備する</h2>
-<p>Arduino UnoにLEDとスライド抵抗を接続した<a href="https://wokwi.com/projects/361055392093857793">サンプルプロジェクト</a>のファイルはこちら↓</p>
-<p><a href="myproject.zip" class="btn btn-outline-primary" role="button">myproject.zip <i class="bi-file-earmark-zip " style="" role="img" aria-hidden="true"></i></a></p>
-<p>自分でプロジェクトファイルを準備する場合は下記のとおり．</p>
-<ol type="1">
-<li><p>シミュレーションしたいWokwiのプロジェクトページにアクセスする</p>
-<ul>
-<li>プロジェクトを新規に作成する場合は<a href="https://wokwi.com/projects/new/arduino-uno">空のArduino Unoプロジェクト</a>を開き，＋ボタンを押して必要な部品を配置して回路を組む</li>
-</ul></li>
-<li><p>左上の「SAVE」ボタンのオプションから「Download project ZIP」を選択してプロジェクトファイル一式をダウンロードする</p></li>
-<li><p>ダウンロードしたZipファイルを展開し，<code>sketch.ino</code>と<code>diagram.json</code>を作業フォルダ（仮に<code>myproject</code>とする）にコピーする</p></li>
-<li><p>作業フォルダ<code>myproject</code>に下記テキストファイルを<code>wokwi.toml</code>として保存する</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode toml code-with-copy"><code class="sourceCode toml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[wokwi]</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">version</span> <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">firmware</span> <span class="op">=</span> <span class="st">'</span><span class="vs">sketch.ino.hex</span><span class="st">'</span> <span class="co"># sketch.inoをコンパイルして生成したhexファイルのパス</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">elf</span> <span class="op">=</span> <span class="st">'</span><span class="vs">sketch.ino.elf</span><span class="st">'</span> <span class="co"># sketch.inoをコンパイルして生成したelfファイルのパス</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ol>
-</section>
-<section id="arduino-ideでスケッチをコンパイルする" class="level2">
-<h2 class="anchored" data-anchor-id="arduino-ideでスケッチをコンパイルする">Arduino IDEでスケッチをコンパイルする</h2>
-<ol type="1">
-<li><p>ダウンロードしたWokwiプロジェクトファイルのZipを展開する</p></li>
-<li><p><code>sketch.ino</code>をArduino IDEで開く．フォルダを自動に作成するか？と聞かれるのでyes</p></li>
-<li><p>「ボードを選択」→「他のボードとポートを選択」→ボード「Arduino Uno」を選択して「OK」．ポートは選択しなくてよい <img src="boardconfig.webp" class="img-fluid" alt="Board config"></p></li>
-<li><p>Arduino IDE左上の✔ボタンを押してコンパイルする</p></li>
-<li><p>正常にコンパイルできたら，下記のようなメッセージが表示されるはず</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">win</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">mac</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<pre><code>...
-"C:\\Users\\myname\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7/bin/avr-size" -A "C:\\Users\\myname\\AppData\\Local\\arduino\\sketches\\C935736F0A842F5A12D3938477EAEB16/sketch.ino.elf"
-最大32256バイトのフラッシュメモリのうち、スケッチが1984バイト（6%）を使っています。
-最大2048バイトのRAMのうち、グローバル変数が194バイト（9%）を使っていて、ローカル変数で1854バイト使うことができます。</code></pre>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<pre><code>...
-/Users/myname/Library/Arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/avr-size -A /Users/myname/Library/Caches/arduino/sketches/AEAF276E5C3B94E2BB709B5EBC40BF48/sketch.ino.elf
-最大32256バイトのフラッシュメモリのうち、スケッチが2224バイト（6%）を使っています。
-最大2048バイトのRAMのうち、グローバル変数が188バイト（9%）を使っていて、ローカル変数で1860バイト使うことができます。</code></pre>
-</div>
-</div>
-</div>
-<p>コンパイルメッセージに<code>sketch.ino.elf</code>が含まれるフォルダの場所が表示される． ファイルパスが表示されない場合は，Arduino IDEの設定で「より詳細な情報を表示する」の「コンパイル」にチェック</p></li>
-<li><p><code>sketch.ino.elf</code>を含むフォルダをエクスプローラ(ファインダー)で開く．</p>
-<ul>
-<li>Windows: <code>Win</code>+<code>E</code>でエクスプローラを開いて，<code>Ctrl</code>+<code>L</code>でアドレス欄に移動先フォルダのパスをコピペする．フォルダの区切りが<code>\\</code>となっているので，<code>\</code>に修正する</li>
-<li>macOS: ファインダーで<code>Cmd</code>+<code>Shift</code>+<code>G</code>→移動先フォルダのパスをコピペする</li>
-</ul></li>
-<li><p><code>sketch.ino.elf</code>と<code>sketch.ino.hex</code>を作業フォルダ<code>myproject</code>にコピーする</p></li>
-</ol>
-</section>
-<section id="vs-codeでwokwiシミュレータを起動する" class="level2">
-<h2 class="anchored" data-anchor-id="vs-codeでwokwiシミュレータを起動する">VS CodeでWokwiシミュレータを起動する</h2>
-<ol type="1">
-<li><p>ブラウザで<a href="https://wokwi.com/">Wokwi</a>にアクセスし，右上の「SIGN UP/SIGN IN」ボタンからログインしておく．アカウントを作成していない場合は作成する</p></li>
-<li><p>VS Codeで作業フォルダ<code>myproject</code>を開く</p></li>
-<li><p><code>diagram.json</code>をVS Code上で開くとシミュレータ画面が表示される</p></li>
-<li><p>ライセンスが無いという警告が表示されるので「Get your License Key」をクリックする <img src="licensepopup.webp" class="img-fluid"></p></li>
-<li><p>ブラウザでWokwiのページが開くので「GET YOUR LICENSE」を選択</p>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>商用利用の場合は有料ライセンスの購入が必要</p>
-</div>
-</div></li>
-<li><p>ブラウザからVS Code画面に遷移して．．． <img src="activation1.webp" class="img-fluid"></p></li>
-<li><p>VS Code上でライセンスを受け入れるとシミュレータが起動できるようになる <img src="activation2.webp" class="img-fluid"></p></li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>スケッチファイルを編集するには，Arduino IDEやWokwiページで<code>sketch.ino</code>を編集する． 編集後の<code>sketch.ino</code>を<a href="#arduino-ideでスケッチをコンパイルする">上記</a>の手順でコンパイルし，<code>myproject</code>以下の<code>hex</code>ファイルと<code>elf</code>ファイルを更新する． 回路を変更する場合は，Wokwiページで編集し，<code>diagram.json</code>を差し替える．</p>
-</div>
-</div>
+<p>最近のトピックは<a href="https://ritscpslab.github.io/research.html">研究室のページ</a>に記載しています</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
