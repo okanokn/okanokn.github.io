@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,6 +10,9 @@
 
 <title>WokwiのArduinoシミュレータをVS Codeで動かす – Kunihisa Okano’s page</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -69,15 +72,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../images/biwako.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-06d2a74864acd26f53e34721cf1c520a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-705bd0ea787264f4dbb6c222770bd963.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -251,10 +253,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>左上の「SAVE」ボタンのオプションから「Download project ZIP」を選択してプロジェクトファイル一式をダウンロードする</p></li>
 <li><p>ダウンロードしたZipファイルを展開し，<code>sketch.ino</code>と<code>diagram.json</code>を作業フォルダ（仮に<code>myproject</code>とする）にコピーする</p></li>
 <li><p>作業フォルダ<code>myproject</code>に下記テキストファイルを<code>wokwi.toml</code>として保存する</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode toml code-with-copy"><code class="sourceCode toml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[wokwi]</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">version</span> <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">firmware</span> <span class="op">=</span> <span class="st">'</span><span class="vs">sketch.ino.hex</span><span class="st">'</span> <span class="co"># sketch.inoをコンパイルして生成したhexファイルのパス</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">elf</span> <span class="op">=</span> <span class="st">'</span><span class="vs">sketch.ino.elf</span><span class="st">'</span> <span class="co"># sketch.inoをコンパイルして生成したelfファイルのパス</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource toml number-lines code-with-copy"><code class="sourceCode toml"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">[wokwi]</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="dt">version</span> <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="dt">firmware</span> <span class="op">=</span> <span class="st">'</span><span class="vs">sketch.ino.hex</span><span class="st">'</span> <span class="co"># sketch.inoをコンパイルして生成したhexファイルのパス</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="dt">elf</span> <span class="op">=</span> <span class="st">'</span><span class="vs">sketch.ino.elf</span><span class="st">'</span> <span class="co"># sketch.inoをコンパイルして生成したelfファイルのパス</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ol>
 </section>
 <section id="arduino-ideでスケッチをコンパイルする" class="level2">

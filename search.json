@@ -70,6 +70,13 @@
     "text": "電気電子工学実験Ⅰ テーマ3で使用するサッカーロボットのサンプルプログラムについて解説する．"
   },
   {
+    "objectID": "posts/scrobo/index.html#scroboライブラリのインストール",
+    "href": "posts/scrobo/index.html#scroboライブラリのインストール",
+    "title": "実験Ⅰ テーマ3 サッカーロボットのサンプルプログラム",
+    "section": "Scroboライブラリのインストール",
+    "text": "Scroboライブラリのインストール\nIDEを起動し，メニューから「設定」（Preferences）を開く． 「スケッチブックの場所」（Sketchbook location）にデフォルトのスケッチ保存先が表示されるので，メモしておく．変更してもよい． また，英語が嫌ならLanguageを日本語に設定する．\nメモしておいた「スケッチブックの場所」をエクスプローラやFinderで開く． 「libraries」というフォルダがあるのでこれを開く． Arduino IDEから参照するライブラリは，このフォルダに格納される．\n実験"
+  },
+  {
     "objectID": "posts/tcadarduino/index.html",
     "href": "posts/tcadarduino/index.html",
     "title": "TinkercadでArduinoシミュレーション",
@@ -77,11 +84,46 @@
     "text": "TinkercadはAutodesk社が提供するブラウザベースのCADサービスである． 一部の商用利用を除いて無料で利用できる． ここでは，回路設計機能を使って，Arduinoマイコンの動作シミュレーションを行う方法を紹介する．"
   },
   {
-    "objectID": "posts/tcadarduino/index.html#tinkercadアカウントをつくる",
-    "href": "posts/tcadarduino/index.html#tinkercadアカウントをつくる",
+    "objectID": "posts/tcadarduino/index.html#tinkercadにログインする",
+    "href": "posts/tcadarduino/index.html#tinkercadにログインする",
     "title": "TinkercadでArduinoシミュレーション",
-    "section": "Tinkercadアカウントをつくる",
-    "text": "Tinkercadアカウントをつくる\nTinkercadにアクセスしてアカウントを作成する．"
+    "section": "Tinkercadにログインする",
+    "text": "Tinkercadにログインする\nTinkercadにアクセスしてログインする． アカウントを持っていない場合は，サインアップから新規アカウントを作成する． クラスルームという特殊なリンク経由で参加する機能もあるが，ここでは個人で使用するための「パーソナルアカウント」を作成する．\n他サービスのアカウントと紐づけてもよいし，メールアドレスを使って新規に登録してもよい．居住地と誕生日を聞かれるが，法的な確認のためと思われる．"
+  },
+  {
+    "objectID": "posts/tcadarduino/index.html#リンク共有された回路を開く",
+    "href": "posts/tcadarduino/index.html#リンク共有された回路を開く",
+    "title": "TinkercadでArduinoシミュレーション",
+    "section": "リンク共有された回路を開く",
+    "text": "リンク共有された回路を開く\nマイページから デザイン &gt; 回路 を選ぶと，回路設計・シミュレーション機能を利用できる． あらかじめ，ArduinoにLEDと可変抵抗を接続した回路を作成しておいた． ログインした状態で上記リンクを開き，「コピーして編集」を選択するとArduinoに書き込むコードや回路を編集できる．"
+  },
+  {
+    "objectID": "posts/tcadarduino/index.html#編集",
+    "href": "posts/tcadarduino/index.html#編集",
+    "title": "TinkercadでArduinoシミュレーション",
+    "section": "編集",
+    "text": "編集\n今回は回路の編集は行わず，Arduinoスケッチ1のみ編集する． 回路を編集する場合は，GUIで素子を追加したり配線を接続したりする．\n右上の「コード」ボタンを押すと，回路素子画面とスケッチ編集画面を切り替えられる． 初期状態では下記のスケッチが実装されているので，これを書き換えて所望の動作を実現する．\nvoid setup() {\n  pinMode(13, OUTPUT); // 13番ピンを出力モードに設定\n  Serial.begin(9600);  // シリアル通信開始(通信速度9600)\n}\n\nvoid loop() {\n  //// LEDチカチカ\n  digitalWrite(13, HIGH); // 13番ピンを HIGH = 5V に設定\n  delay(250); // 250 ms の間何もしない = 点灯を維持\n  digitalWrite(13, LOW); // 13番ピンを LOW = 0V に設定\n  delay(250); // 250 ms の間何もしない = 消灯を維持\n  \n  //// 可変抵抗器の電圧をシリアルモニタに表示\n  int sliderValue = analogRead(0); //A0ピンの電圧値を読む\n  Serial.println(sliderValue); //電圧値をモニタに出力\n}"
+  },
+  {
+    "objectID": "posts/tcadarduino/index.html#シミュレーション",
+    "href": "posts/tcadarduino/index.html#シミュレーション",
+    "title": "TinkercadでArduinoシミュレーション",
+    "section": "シミュレーション",
+    "text": "シミュレーション\nスケッチを含めた回路の動作は，右上の「シミュレーション」ボタンを押すとアニメーションで描画される． 例えば，9行目の250を小さな値に書き換えると，13番ピンの電圧がHIGHである時間が短くなり，LEDが点灯している時間が短くなることが確認できる．\n14行目で読み取った可変抵抗の電圧値は，int型変数sliderValueに代入され，15行目でシリアル通信される． 実機ではArduinoからUSBで接続されたPCに情報が送信される． Tinkercadでは，通信された内容を右下の「シリアルモニタ」ウィンドウで確認できる． 実機ではPC上のArduino IDEにシリアルモニタが備わっている．\n動作を確認できたら，シミュレーションを停止させ，必要な編集を続けよう．"
+  },
+  {
+    "objectID": "posts/tcadarduino/index.html#編集結果を共有",
+    "href": "posts/tcadarduino/index.html#編集結果を共有",
+    "title": "TinkercadでArduinoシミュレーション",
+    "section": "編集結果を共有",
+    "text": "編集結果を共有\n納得いくものができたら，右上の「送信先」ボタンから共有可能なURLを発行しよう． 「送信先」＞「ユーザを招待」とたどると，URLが表示される．"
+  },
+  {
+    "objectID": "posts/tcadarduino/index.html#footnotes",
+    "href": "posts/tcadarduino/index.html#footnotes",
+    "title": "TinkercadでArduinoシミュレーション",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nArduinoに書き込むプログラムのこと．↩︎"
   },
   {
     "objectID": "research.html",
@@ -214,28 +256,28 @@
     "href": "posts/arduinoide/index.html",
     "title": "Arduino IDEの基本的な使い方",
     "section": "",
-    "text": "Arduinoプロジェクトが提供する統合開発環境Arduino IDEは，（Arduinoに限らず）マイコンを用いた電子工作で広く利用される． IDE上で，プログラムの作成，USBでPCに接続したマイコンボードに書き込み，シリアル通信まで一貫して行うことができ，手軽に環境を整えることができる． 最近，出資元が変わったArduinoとしては，新たな開発環境App Labを推進していくような雰囲気である．\n以下では，IDE 2.x系を用いてArduino Nanoボードにプログラムを書き込む方法を説明する．"
+    "text": "Arduinoプロジェクトが提供する統合開発環境Arduino IDEは，（Arduinoに限らず）マイコンを用いた電子工作で広く利用される． IDE上で，プログラムの作成，USBでPCに接続したマイコンボードに書き込み，シリアル通信まで一貫して行うことができ，手軽に環境を整えることができる． 以下では，IDE 2.x系1を用いてArduino Nanoボードにプログラムを書き込む方法を説明する．"
   },
   {
     "objectID": "posts/arduinoide/index.html#arduino-ideのインストール",
     "href": "posts/arduinoide/index.html#arduino-ideのインストール",
     "title": "Arduino IDEの基本的な使い方",
     "section": "Arduino IDEのインストール",
-    "text": "Arduino IDEのインストール"
+    "text": "Arduino IDEのインストール\nArduino公式のソフトウェページを開き，「Arduino IDE 2.3.8」（2026/3/20現在の最新）のインストーラをダウンロードする． 「DOWNLOAD」ボタンの横で，インストール先のOSを選択できる． Nightly BuildsやLagacy IDEは使わない．\nダウンロードしたインストーラを起動してIDEをインストールする． インストール先は特にこだわりがなければデフォルトでよい．\nインストールしたらIDEを起動する． メニューから「設定」（Preferences）を開くと見た目などを変更できる．"
   },
   {
     "objectID": "posts/arduinoide/index.html#スケッチの構造",
     "href": "posts/arduinoide/index.html#スケッチの構造",
     "title": "Arduino IDEの基本的な使い方",
     "section": "スケッチの構造",
-    "text": "スケッチの構造"
+    "text": "スケッチの構造\nsetup関数とloop関数を含む．"
   },
   {
     "objectID": "posts/arduinoide/index.html#書き込み",
     "href": "posts/arduinoide/index.html#書き込み",
     "title": "Arduino IDEの基本的な使い方",
     "section": "書き込み",
-    "text": "書き込み"
+    "text": "書き込み\n何もしないファイル\nvoid setup() {\n  // put your setup code here, to run once:\n\n}\n\nvoid loop() {\n  // put your main code here, to run repeatedly:\n\n}\n\n\n\n\n\n\nCaution\n\n\n\n書き込み中にケーブルを抜かない．"
   },
   {
     "objectID": "posts/arduinoide/index.html#エラーメッセージの読み方",
@@ -243,6 +285,13 @@
     "title": "Arduino IDEの基本的な使い方",
     "section": "エラーメッセージの読み方",
     "text": "エラーメッセージの読み方"
+  },
+  {
+    "objectID": "posts/arduinoide/index.html#footnotes",
+    "href": "posts/arduinoide/index.html#footnotes",
+    "title": "Arduino IDEの基本的な使い方",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\n最近，出資元が変わったArduinoとしては，新たな開発環境であるApp Labを推進していくような雰囲気である．↩︎"
   },
   {
     "objectID": "index.html",

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,6 +10,9 @@
 
 <title>TinkercadでArduinoシミュレーション – Kunihisa Okano’s page</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -20,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -34,15 +72,14 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../images/biwako.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-06d2a74864acd26f53e34721cf1c520a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-705bd0ea787264f4dbb6c222770bd963.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -126,7 +163,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tinkercadアカウントをつくる" id="toc-tinkercadアカウントをつくる" class="nav-link active" data-scroll-target="#tinkercadアカウントをつくる">Tinkercadアカウントをつくる</a></li>
+  <li><a href="#tinkercadにログインする" id="toc-tinkercadにログインする" class="nav-link active" data-scroll-target="#tinkercadにログインする">Tinkercadにログインする</a></li>
+  <li><a href="#リンク共有された回路を開く" id="toc-リンク共有された回路を開く" class="nav-link" data-scroll-target="#リンク共有された回路を開く">リンク共有された回路を開く</a></li>
+  <li><a href="#編集" id="toc-編集" class="nav-link" data-scroll-target="#編集">編集</a></li>
+  <li><a href="#シミュレーション" id="toc-シミュレーション" class="nav-link" data-scroll-target="#シミュレーション">シミュレーション</a></li>
+  <li><a href="#編集結果を共有" id="toc-編集結果を共有" class="nav-link" data-scroll-target="#編集結果を共有">編集結果を共有</a></li>
   </ul>
 </nav>
     </div>
@@ -163,14 +204,56 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><a href="https://www.tinkercad.com/">Tinkercad</a>はAutodesk社が提供するブラウザベースのCADサービスである． 一部の商用利用を除いて無料で利用できる． ここでは，回路設計機能を使って，Arduinoマイコンの動作シミュレーションを行う方法を紹介する．</p>
-<section id="tinkercadアカウントをつくる" class="level2">
-<h2 class="anchored" data-anchor-id="tinkercadアカウントをつくる">Tinkercadアカウントをつくる</h2>
-<p><a href="https://www.tinkercad.com/">Tinkercad</a>にアクセスしてアカウントを作成する．</p>
+<section id="tinkercadにログインする" class="level2">
+<h2 class="anchored" data-anchor-id="tinkercadにログインする">Tinkercadにログインする</h2>
+<p><a href="https://www.tinkercad.com/">Tinkercad</a>にアクセスしてログインする． アカウントを持っていない場合は，サインアップから新規アカウントを作成する． クラスルームという特殊なリンク経由で参加する機能もあるが，ここでは個人で使用するための「パーソナルアカウント」を作成する．</p>
+<p>他サービスのアカウントと紐づけてもよいし，メールアドレスを使って新規に登録してもよい．居住地と誕生日を聞かれるが，法的な確認のためと思われる．</p>
+</section>
+<section id="リンク共有された回路を開く" class="level2">
+<h2 class="anchored" data-anchor-id="リンク共有された回路を開く">リンク共有された回路を開く</h2>
+<p>マイページから デザイン &gt; 回路 を選ぶと，回路設計・シミュレーション機能を利用できる． あらかじめ，<a href="https://www.tinkercad.com/things/84RO8vkoy9t-lednpotentio?sharecode=dHbUB6Q7gIGiySqgPoZvBmb5S9uKHKpc8KB77jdp40c">ArduinoにLEDと可変抵抗を接続した回路</a>を作成しておいた． ログインした状態で上記リンクを開き，「コピーして編集」を選択するとArduinoに書き込むコードや回路を編集できる．</p>
+</section>
+<section id="編集" class="level2">
+<h2 class="anchored" data-anchor-id="編集">編集</h2>
+<p>今回は回路の編集は行わず，Arduinoスケッチ<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>のみ編集する． 回路を編集する場合は，GUIで素子を追加したり配線を接続したりする．</p>
+<p>右上の「コード」ボタンを押すと，回路素子画面とスケッチ編集画面を切り替えられる． 初期状態では下記のスケッチが実装されているので，これを書き換えて所望の動作を実現する．</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a><span class="dt">void</span> setup<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>  pinMode<span class="op">(</span><span class="dv">13</span><span class="op">,</span> OUTPUT<span class="op">);</span> <span class="co">// 13番ピンを出力モードに設定</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>  Serial<span class="op">.</span>begin<span class="op">(</span><span class="dv">9600</span><span class="op">);</span>  <span class="co">// シリアル通信開始(通信速度9600)</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="op">}</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="dt">void</span> loop<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>  <span class="co">//// LEDチカチカ</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>  digitalWrite<span class="op">(</span><span class="dv">13</span><span class="op">,</span> HIGH<span class="op">);</span> <span class="co">// 13番ピンを HIGH = 5V に設定</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>  delay<span class="op">(</span><span class="dv">250</span><span class="op">);</span> <span class="co">// 250 ms の間何もしない = 点灯を維持</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>  digitalWrite<span class="op">(</span><span class="dv">13</span><span class="op">,</span> LOW<span class="op">);</span> <span class="co">// 13番ピンを LOW = 0V に設定</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>  delay<span class="op">(</span><span class="dv">250</span><span class="op">);</span> <span class="co">// 250 ms の間何もしない = 消灯を維持</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a>  </span>
+<span id="cb1-13"><a href="#cb1-13"></a>  <span class="co">//// 可変抵抗器の電圧をシリアルモニタに表示</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>  <span class="dt">int</span> sliderValue <span class="op">=</span> analogRead<span class="op">(</span><span class="dv">0</span><span class="op">);</span> <span class="co">//A0ピンの電圧値を読む</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>  Serial<span class="op">.</span>println<span class="op">(</span>sliderValue<span class="op">);</span> <span class="co">//電圧値をモニタに出力</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="シミュレーション" class="level2">
+<h2 class="anchored" data-anchor-id="シミュレーション">シミュレーション</h2>
+<p>スケッチを含めた回路の動作は，右上の「シミュレーション」ボタンを押すとアニメーションで描画される． 例えば，9行目の<code>250</code>を小さな値に書き換えると，13番ピンの電圧がHIGHである時間が短くなり，LEDが点灯している時間が短くなることが確認できる．</p>
+<p>14行目で読み取った可変抵抗の電圧値は，<code>int</code>型変数<code>sliderValue</code>に代入され，15行目でシリアル通信される． 実機ではArduinoからUSBで接続されたPCに情報が送信される． Tinkercadでは，通信された内容を右下の「シリアルモニタ」ウィンドウで確認できる． 実機ではPC上のArduino IDEにシリアルモニタが備わっている．</p>
+<p>動作を確認できたら，シミュレーションを停止させ，必要な編集を続けよう．</p>
+</section>
+<section id="編集結果を共有" class="level2">
+<h2 class="anchored" data-anchor-id="編集結果を共有">編集結果を共有</h2>
+<p>納得いくものができたら，右上の「送信先」ボタンから共有可能なURLを発行しよう． 「送信先」＞「ユーザを招待」とたどると，URLが表示される．</p>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Arduinoに書き込むプログラムのこと．<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
