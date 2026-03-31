@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2026-03-20">
 
-<title>Arduino IDEの基本的な使い方 – Kunihisa Okano’s page</title>
+<title>Arduino IDEの使い方入門 – Kunihisa Okano’s page</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -164,9 +164,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#arduino-ideのインストール" id="toc-arduino-ideのインストール" class="nav-link active" data-scroll-target="#arduino-ideのインストール">Arduino IDEのインストール</a></li>
-  <li><a href="#スケッチの構造" id="toc-スケッチの構造" class="nav-link" data-scroll-target="#スケッチの構造">スケッチの構造</a></li>
+  <li><a href="#スケッチの保存" id="toc-スケッチの保存" class="nav-link" data-scroll-target="#スケッチの保存">スケッチの保存</a></li>
+  <li><a href="#スケッチの中身" id="toc-スケッチの中身" class="nav-link" data-scroll-target="#スケッチの中身">スケッチの中身</a>
+  <ul class="collapse">
+  <li><a href="#led点滅プログラム" id="toc-led点滅プログラム" class="nav-link" data-scroll-target="#led点滅プログラム">LED点滅プログラム</a></li>
+  </ul></li>
+  <li><a href="#ボードとポートの設定" id="toc-ボードとポートの設定" class="nav-link" data-scroll-target="#ボードとポートの設定">ボードとポートの設定</a></li>
   <li><a href="#書き込み" id="toc-書き込み" class="nav-link" data-scroll-target="#書き込み">書き込み</a></li>
-  <li><a href="#エラーメッセージの読み方" id="toc-エラーメッセージの読み方" class="nav-link" data-scroll-target="#エラーメッセージの読み方">エラーメッセージの読み方</a></li>
+  <li><a href="#お役立ち" id="toc-お役立ち" class="nav-link" data-scroll-target="#お役立ち">お役立ち</a>
+  <ul class="collapse">
+  <li><a href="#コンパイルメッセージを確認" id="toc-コンパイルメッセージを確認" class="nav-link" data-scroll-target="#コンパイルメッセージを確認">コンパイルメッセージを確認</a></li>
+  <li><a href="#インデントを自動整形" id="toc-インデントを自動整形" class="nav-link" data-scroll-target="#インデントを自動整形">インデントを自動整形</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -175,7 +184,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Arduino IDEの基本的な使い方</h1>
+<h1 class="title">Arduino IDEの使い方入門</h1>
   <div class="quarto-categories">
     <div class="quarto-category">arduino</div>
   </div>
@@ -201,20 +210,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Arduinoプロジェクトが提供する統合開発環境<a href="https://docs.arduino.cc/software/ide/">Arduino IDE</a>は，（Arduinoに限らず）マイコンを用いた電子工作で広く利用される． IDE上で，プログラムの作成，USBでPCに接続したマイコンボードに書き込み，シリアル通信まで一貫して行うことができ，手軽に環境を整えることができる． 以下では，IDE 2.x系<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>を用いてArduino Nanoボードにプログラムを書き込む方法を説明する．</p>
+<p>Arduinoプロジェクトが提供する統合開発環境<a href="https://docs.arduino.cc/software/ide/">Arduino IDE</a>は，（Arduinoに限らず）マイコンを用いた電子工作で広く利用される． IDE上で，プログラムの作成，USBでPCに接続したマイコンボードに書き込み，シリアル通信まで一貫して行うことができ，手軽に環境を整えることができる． 以下では，Arduino IDEを用いてArduino Nanoボードにプログラムを書き込む方法を説明する<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>．</p>
 <section id="arduino-ideのインストール" class="level2">
 <h2 class="anchored" data-anchor-id="arduino-ideのインストール">Arduino IDEのインストール</h2>
-<p><a href="https://www.arduino.cc/en/software/">Arduino公式のソフトウェページ</a>を開き，「Arduino IDE 2.3.8」（2026/3/20現在の最新）のインストーラをダウンロードする． 「DOWNLOAD」ボタンの横で，インストール先のOSを選択できる． Nightly BuildsやLagacy IDEは使わない．</p>
-<p>ダウンロードしたインストーラを起動してIDEをインストールする． インストール先は特にこだわりがなければデフォルトでよい．</p>
-<p>インストールしたらIDEを起動する． メニューから「設定」（Preferences）を開くと見た目などを変更できる．</p>
+<p><a href="https://www.arduino.cc/en/software/">Arduino公式のソフトウェページ</a>から「Arduino IDE」のインストーラをダウンロードする． 最新の<strong>2.x系</strong>（2026/3/20現在の最新バージョンは2.3.8）のインストーラは「DOWNLOAD」ボタンから入手できる． 開発PCがネットに接続できない，スペックが低いなどの事情がある場合は，「Legacy IDE」を選択して旧バージョンの<strong>1.x系</strong>（最新1.8.9）を利用するとよい．</p>
+<p>インストール先は特にこだわりがなければデフォルトでよい． IDEを起動して，メニューから「設定」（Preferences）を開くと見た目などを変更できる．</p>
 </section>
-<section id="スケッチの構造" class="level2">
-<h2 class="anchored" data-anchor-id="スケッチの構造">スケッチの構造</h2>
-<p><code>setup</code>関数と<code>loop</code>関数を含む．</p>
-</section>
-<section id="書き込み" class="level2">
-<h2 class="anchored" data-anchor-id="書き込み">書き込み</h2>
-<p>何もしないファイル</p>
+<section id="スケッチの保存" class="level2">
+<h2 class="anchored" data-anchor-id="スケッチの保存">スケッチの保存</h2>
+<p>さっそくスケッチを作成してみよう． IDEを起動して「ファイル」メニューの「新規スケッチ」を選択すると，スケッチの雛形が作成される．</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a><span class="dt">void</span> setup<span class="op">()</span> <span class="op">{</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>  <span class="co">// put your setup code here, to run once:</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
@@ -224,6 +228,89 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7"></a>  <span class="co">// put your main code here, to run repeatedly:</span></span>
 <span id="cb1-8"><a href="#cb1-8"></a></span>
 <span id="cb1-9"><a href="#cb1-9"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Arduinoのスケッチファイルは，ファイル名と同名のフォルダに格納しなければならない． IDEの保存機能を使うと，自動的に格納フォルダが作成される． 先程のスケッチの雛形を，そのまま<code>blink</code>という名前をつけて「保存」（Ctrl+S）しよう． デフォルトの保存先は，<code>マイドキュメント</code>（macOSならユーザホームの<code>書類</code>）の<code>Arduino</code>フォルダ以下である． 保存先を確認すると，<code>Arduino</code>フォルダ内に<code>blink</code>フォルダが作成され，その下にテキストファイル<code>blink.ino</code>が作成されている．</p>
+<div class="callout callout-style-default callout-important callout-titled" title="スケッチ名の制約">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>スケッチ名の制約
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>スケッチファイルは，<strong>ファイル名と同名のフォルダに格納</strong>しなければならない．ファイル名は半角英数，スペースなし．</p>
+</div>
+</div>
+<p>ファイル名の制約について，守らなくても問題ない環境もあるとは思うが，守っておくほうが無難である．</p>
+</section>
+<section id="スケッチの中身" class="level2">
+<h2 class="anchored" data-anchor-id="スケッチの中身">スケッチの中身</h2>
+<p>スケッチファイルは，必ず<code>setup</code>関数と<code>loop</code>関数を含む． Arduinoに電源が投入されると，<code>setup</code>関数が実行される． その後，<code>loop</code>関数を実行する． <code>loop</code>関数の実行が完了したら，再び<code>loop</code>関数を頭から実行する． <code>setup</code>には初期設定など，<code>loop</code>には継続的に実行するメインの処理を記述する．</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Arduinoの挙動">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Arduinoの挙動
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>電源on → <code>setup</code>関数実行 → <code>loop</code>関数実行 → <code>loop</code>関数実行 → （以後繰り返し）</p>
+</div>
+</div>
+<section id="led点滅プログラム" class="level3">
+<h3 class="anchored" data-anchor-id="led点滅プログラム">LED点滅プログラム</h3>
+<p>先程作成した<code>blink.ino</code>を，13番ピンに接続されたLEDを点灯/消灯するプログラムに書き換えよう． 実際に13番ピンにLEDが接続されていなくても，Arduinoボードに備え付けのLEDがあり，13番ピンとしてアクセスできる．</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1"></a><span class="dt">void</span> setup<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>  pinMode<span class="op">(</span><span class="dv">13</span><span class="op">,</span> OUTPUT<span class="op">);</span> <span class="co">// 13番ピンを出力ピンに設定</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  Serial<span class="op">.</span>begin<span class="op">(</span><span class="dv">9600</span><span class="op">);</span>  <span class="co">// シリアル通信を設定</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="op">}</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="dt">void</span> loop<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>  digitalWrite<span class="op">(</span><span class="dv">13</span><span class="op">,</span> HIGH<span class="op">);</span> <span class="co">// 13番ピンの電圧をHigh = 5V に設定</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"ON"</span><span class="op">);</span>   <span class="co">// シリアル通信で文字列送信</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>  delay<span class="op">(</span><span class="dv">1000</span><span class="op">);</span>            <span class="co">// 1000ミリ秒待機</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>  digitalWrite<span class="op">(</span><span class="dv">13</span><span class="op">,</span> LOW<span class="op">);</span>  <span class="co">// 13番ピンの電圧をLow = 0V に設定</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"OFF"</span><span class="op">);</span>  <span class="co">// シリアル通信で文字列送信</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a>  delay<span class="op">(</span><span class="dv">1000</span><span class="op">);</span>            <span class="co">// 1000ミリ秒待機</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="ボードとポートの設定" class="level2">
+<h2 class="anchored" data-anchor-id="ボードとポートの設定">ボードとポートの設定</h2>
+<p>コンパイルと書き込みを行うために，使用するマイコンボードの種類と，PC上の接続ポートをIDE上で設定する．</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">2.x系</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">1.x系</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>IDE上部のボード選択欄から，設定画面を開き，Arduino Nanoボードと，マイコンが接続されているUSBポートを選択する．</p>
+<p><img src="./board_port_ide2.webp" class="img-fluid"></p>
+<p>設定後はボード名が<strong>太字</strong>で表記され，最下部のバー部分にボード名とポート番号が表示される．</p>
+<p><img src="./board_port2_ide2.webp" class="img-fluid"></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>メニューの「ツール ＞ ボード」から，図のように使用するボード（Arduino Nano）を選択する．</p>
+<p><img src="./board_port_ide1.webp" class="img-fluid"></p>
+<p>同様に「ツール ＞ シリアルポート」とたどって，Arduinoを接続しているUSBポート番号を選択する． チェックが付いていることを確認しよう．</p>
+<p><img src="./board_port2_ide1.webp" class="img-fluid"></p>
+<p>選択後は最下部のバー部分にボード名とポート番号が表示される．</p>
+</div>
+</div>
+</div>
+<p>Arduinoボードによっては，USBケーブルでPCと接続してもポート一覧に表示されない場合がある． PCがネットに接続していれば，しばらく待つと自動的にドライバを更新され認識される．</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="dm_usb_serial_port.webp" class="img-fluid figure-img"></p>
+<figcaption>デバイスマネージャーで接続ポートを確認</figcaption>
+</figure>
+</div>
+<p>解決しない場合は，Windowsならデバイスマネージャーを開き，警告マーク⚠がついているデバイスを探して該当するドライバを手動でインストールする<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>．</p>
+</section>
+<section id="書き込み" class="level2">
+<h2 class="anchored" data-anchor-id="書き込み">書き込み</h2>
+<p>ボードにスケッチを書き込むには，書き込みボタン（→）を押す． コンパイルと書き込みが行われ，無事に完了すれば「書き込み完了」のメッセージが画面下部に表示される．</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -234,14 +321,24 @@ Caution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>書き込み中にケーブルを抜かない．</p>
+<p>書き込み中にケーブルを抜かないこと．ファームウェア破損のおそれあり．</p>
 </div>
 </div>
+<p>書き込み完了後，LEDが1秒ごとに点滅しているはずである． IDE右上の「シリアルモニタ」表示ボタンを押すと，マイコンボードとの通信画面が表示される． 点灯のタイミングで「ON」，消灯で「OFF」という文字列が送られてきているはずである．</p>
+<p>マイコンボードのUSBケーブルを外しても，書き込まれたスケッチは保存されているので，外部電源で起動すればLEDが点滅する．</p>
 </section>
-<section id="エラーメッセージの読み方" class="level2">
-<h2 class="anchored" data-anchor-id="エラーメッセージの読み方">エラーメッセージの読み方</h2>
+<section id="お役立ち" class="level2">
+<h2 class="anchored" data-anchor-id="お役立ち">お役立ち</h2>
+<section id="コンパイルメッセージを確認" class="level3">
+<h3 class="anchored" data-anchor-id="コンパイルメッセージを確認">コンパイルメッセージを確認</h3>
+<p>書き込み前に，画面左上の検証ボタン（✓）でコンパイルしてみよう． 画面下部にコンパイル完了のメッセージが出ればok． エラーがある場合は，出力ウィンドウのエラーメッセージを確認して修正しよう．</p>
+</section>
+<section id="インデントを自動整形" class="level3">
+<h3 class="anchored" data-anchor-id="インデントを自動整形">インデントを自動整形</h3>
+<p>スケッチを編集中にインデントがずれて見にくくなった場合は，スケッチをすべて選択してメニューから「編集 ＞ 自動整形」を実行すると，インデントを揃えてくれる． ショートカットキー（Ctrl + T）を覚えて使うとよい．</p>
 
 
+</section>
 </section>
 
 
@@ -249,6 +346,7 @@ Caution
 
 <ol>
 <li id="fn1"><p>最近，出資元が変わったArduinoとしては，新たな開発環境であるApp Labを推進していくような雰囲気である．<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>たとえば，CH340がよく使われる．<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

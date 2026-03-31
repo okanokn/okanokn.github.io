@@ -165,7 +165,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#tinkercadにログインする" id="toc-tinkercadにログインする" class="nav-link active" data-scroll-target="#tinkercadにログインする">Tinkercadにログインする</a></li>
   <li><a href="#リンク共有された回路を開く" id="toc-リンク共有された回路を開く" class="nav-link" data-scroll-target="#リンク共有された回路を開く">リンク共有された回路を開く</a></li>
-  <li><a href="#編集" id="toc-編集" class="nav-link" data-scroll-target="#編集">編集</a></li>
+  <li><a href="#スケッチ編集" id="toc-スケッチ編集" class="nav-link" data-scroll-target="#スケッチ編集">スケッチ編集</a></li>
   <li><a href="#シミュレーション" id="toc-シミュレーション" class="nav-link" data-scroll-target="#シミュレーション">シミュレーション</a></li>
   <li><a href="#編集結果を共有" id="toc-編集結果を共有" class="nav-link" data-scroll-target="#編集結果を共有">編集結果を共有</a></li>
   </ul>
@@ -212,9 +212,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="リンク共有された回路を開く" class="level2">
 <h2 class="anchored" data-anchor-id="リンク共有された回路を開く">リンク共有された回路を開く</h2>
 <p>マイページから デザイン &gt; 回路 を選ぶと，回路設計・シミュレーション機能を利用できる． あらかじめ，<a href="https://www.tinkercad.com/things/84RO8vkoy9t-lednpotentio?sharecode=dHbUB6Q7gIGiySqgPoZvBmb5S9uKHKpc8KB77jdp40c">ArduinoにLEDと可変抵抗を接続した回路</a>を作成しておいた． ログインした状態で上記リンクを開き，「コピーして編集」を選択するとArduinoに書き込むコードや回路を編集できる．</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./tcad_main.webp" class="img-fluid figure-img"></p>
+<figcaption><a href="https://www.tinkercad.com/things/84RO8vkoy9t-lednpotentio?sharecode=dHbUB6Q7gIGiySqgPoZvBmb5S9uKHKpc8KB77jdp40c">ArduinoにLEDと可変抵抗を接続した回路</a></figcaption>
+</figure>
+</div>
 </section>
-<section id="編集" class="level2">
-<h2 class="anchored" data-anchor-id="編集">編集</h2>
+<section id="スケッチ編集" class="level2">
+<h2 class="anchored" data-anchor-id="スケッチ編集">スケッチ編集</h2>
 <p>今回は回路の編集は行わず，Arduinoスケッチ<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>のみ編集する． 回路を編集する場合は，GUIで素子を追加したり配線を接続したりする．</p>
 <p>右上の「コード」ボタンを押すと，回路素子画面とスケッチ編集画面を切り替えられる． 初期状態では下記のスケッチが実装されているので，これを書き換えて所望の動作を実現する．</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a><span class="dt">void</span> setup<span class="op">()</span> <span class="op">{</span></span>
@@ -243,6 +249,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="編集結果を共有" class="level2">
 <h2 class="anchored" data-anchor-id="編集結果を共有">編集結果を共有</h2>
 <p>納得いくものができたら，右上の「送信先」ボタンから共有可能なURLを発行しよう． 「送信先」＞「ユーザを招待」とたどると，URLが表示される．</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./tcad_share_url.webp" class="img-fluid figure-img"></p>
+<figcaption>回路とスケッチをURL共有</figcaption>
+</figure>
+</div>
 
 
 </section>
