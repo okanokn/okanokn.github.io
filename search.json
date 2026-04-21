@@ -4,7 +4,7 @@
     "href": "memo.html",
     "title": "Memo",
     "section": "",
-    "text": "TinkercadでArduinoシミュレーション\n\n\n\ntinkercad\n\narduino\n\n\n\n\n\n\n\n\n\nMar 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nArduino IDEの使い方入門\n\n\n\narduino\n\n\n\n\n\n\n\n\n\nMar 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n実験Ⅰ テーマ3 サッカーロボットのサンプルプログラム\n\n\n\narduino\n\n\n\n\n\n\n\n\n\nMar 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nWokwiのArduinoシミュレータをVS Codeで動かす\n\n\n\narduino\n\nwokwi\n\n\n\n\n\n\n\n\n\nMar 19, 2025\n\n\n\n\n\nNo matching items"
+    "text": "TinkercadでArduinoシミュレーション\n\n\n\ntinkercad\n\narduino\n\n\n\n\n\n\n\n\n\nMar 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nArduino IDEの使い方入門\n\n\n\narduino\n\n\n\n\n\n\n\n\n\nMar 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n実験Ⅰ テーマ3 開発環境設定とサンプルプログラムの解説\n\n\n\narduino\n\n\n\n\n\n\n\n\n\nMar 20, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nWokwiのArduinoシミュレータをVS Codeで動かす\n\n\n\narduino\n\nwokwi\n\n\n\n\n\n\n\n\n\nMar 19, 2025\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "publications.html",
@@ -65,35 +65,42 @@
   {
     "objectID": "posts/scrobo/index.html",
     "href": "posts/scrobo/index.html",
-    "title": "実験Ⅰ テーマ3 サッカーロボットのサンプルプログラム",
+    "title": "実験Ⅰ テーマ3 開発環境設定とサンプルプログラムの解説",
     "section": "",
-    "text": "電気電子工学実験Ⅰ テーマ3で使用するサッカーロボットのサンプルプログラムについて解説する．"
+    "text": "電気電子工学実験Ⅰ テーマ3の開発環境を自分のPCで整える方法と，サンプルプログラムについて解説する．"
+  },
+  {
+    "objectID": "posts/scrobo/index.html#arduino-ideのインストール",
+    "href": "posts/scrobo/index.html#arduino-ideのインストール",
+    "title": "実験Ⅰ テーマ3 開発環境設定とサンプルプログラムの解説",
+    "section": "Arduino IDEのインストール",
+    "text": "Arduino IDEのインストール\n別記事を参照してArduino IDEをインストールする．"
   },
   {
     "objectID": "posts/scrobo/index.html#scroboライブラリのインストール",
     "href": "posts/scrobo/index.html#scroboライブラリのインストール",
-    "title": "実験Ⅰ テーマ3 サッカーロボットのサンプルプログラム",
+    "title": "実験Ⅰ テーマ3 開発環境設定とサンプルプログラムの解説",
     "section": "Scroboライブラリのインストール",
     "text": "Scroboライブラリのインストール\nモータ制御用のライブラリをインストールする．\n\nGitHubページからソースコードのzipファイルをダウンロードする．\nArduino IDEのメニューから，「スケッチ＞ライブラリをインクルード＞.ZIP形式のライブラリをインストール」を選び，ダウンロードしたzipファイルを選択する．"
   },
   {
-    "objectID": "posts/scrobo/index.html#サンプルプログラムの解説",
-    "href": "posts/scrobo/index.html#サンプルプログラムの解説",
-    "title": "実験Ⅰ テーマ3 サッカーロボットのサンプルプログラム",
-    "section": "サンプルプログラムの解説",
-    "text": "サンプルプログラムの解説\n\n共通部\n#include &lt;Scrobo.h&gt;\n\nScrobo robo = Scrobo();\n\nvoid setup()\n{\n  Serial.begin(38400); // Open serial port at 38400 [baud]\n  Serial.println(\"Connected\");\n}\nモータ制御用ライブラリをインクルードし，インスタンス（robo）を作る． これはScroboライブラリで用意されている関数を使う場合に必要となる．\n7行目で通信速度38400 baudでPCとマイコン間のシリアル通信を開始する．"
+    "objectID": "posts/scrobo/index.html#usbシリアル変換icのドライバー",
+    "href": "posts/scrobo/index.html#usbシリアル変換icのドライバー",
+    "title": "実験Ⅰ テーマ3 開発環境設定とサンプルプログラムの解説",
+    "section": "USBシリアル変換ICのドライバー",
+    "text": "USBシリアル変換ICのドライバー\n実験機に搭載されているマイコンをPCで認識するために，USBシリアル通信用IC（CH340）のドライバーをインストールする必要がある． 現行のOSであれば，インターネットに接続した状態でPCとマイコンをUSBケーブルでつなぎ，しばらく待てば自動的にインストールが行われる．\n手動でインストールしたい場合は，たとえば秋月電子のページなどでインストール方法が紹介されている．"
   },
   {
-    "objectID": "posts/scrobo/index.html#sensor_checker",
-    "href": "posts/scrobo/index.html#sensor_checker",
-    "title": "実験Ⅰ テーマ3 サッカーロボットのサンプルプログラム",
-    "section": "sensor_checker",
-    "text": "sensor_checker\n1秒ごとに6個のアナログセンサの出力値を読み取り，シリアル通信に書き込むプログラムである．\nvoid loop()\n{\n  // Read analog inputs\n  int ball_left = analogRead(0);   // A0\n  int ball_center = analogRead(1); // A1\n  int ball_right = analogRead(2);  // A2\n  int range = analogRead(3);       // A3\n  int floor_left = analogRead(6);  // A6\n  int floor_right = analogRead(7); // A7\n\n  // Serial outputs\n  Serial.print(ball_left);\n  Serial.print(\",\");\n  Serial.print(ball_center);\n  Serial.print(\",\");\n  Serial.print(ball_right);\n  Serial.print(\",\");\n  Serial.print(range);\n  Serial.print(\",\");\n  Serial.print(floor_left);\n  Serial.print(\",\");\n  Serial.print(floor_right);\n  Serial.println();\n\n  // Wait 1 sec\n  delay(1000);\n}\n4–9行目は，各行でひとつずつアナログセンサの値を読み取り，整数型の変数に格納している． analogRead関数の引数は，センサが接続されているマイコンボードのポート番号である． センサは0–5 Vの電圧値を出力し，それをマイコンのA/D変換ボードが0–1023の整数値に変換する．\n12–23行目は，変数に保存したデータをシリアル通信でPC宛に送信している． ダブルクォートで囲われた(“,”)は，区切り用のカンマを書くため． printlnは末尾に改行を付加するプリント文で，23行目は改行のみを送信している．\n最後に，26行目にて1000ミリ秒 = 1秒待機する． 1秒経過後にloop関数の内容をすべて実行し終えたことになり，センサ出力を読み取る冒頭部に戻る．\n\nmotor_checker\n左右の走行モータ（M1, M2）とドリブルモータ（M3）の動作テストを行うプログラムである．\nvoid loop() {\n  delay(2000);\n\n  // Move forward\n  robo.setSpeedM1(100);\n  robo.setSpeedM2(100);\n  delay(1500);\n\n  // Stop\n  robo.setSpeedM1(0);\n  robo.setSpeedM2(0);\n  delay(1000);\n\n  // Move backward\n  robo.setSpeedM1(-100);\n  robo.setSpeedM2(-100);\n  delay(1500);\n\n  // Stop\n  robo.setSpeedM1(0);\n  robo.setSpeedM2(0);\n  delay(1000);\n\n  // Zigzag\n  for (int i = 0; i &lt; 4; i++) {\n    robo.setSpeedM1(100);\n    robo.setSpeedM2(30);\n    delay(500);\n    robo.setSpeedM1(30);\n    robo.setSpeedM2(100);\n    delay(500);\n  }\n  robo.setSpeedM1(0);\n  robo.setSpeedM2(0);\n  delay(1000);\n\n  // Turn left\n  robo.setSpeedM1(-100);\n  robo.setSpeedM2(100);\n  delay(1500);\n\n  // Stop\n  robo.setSpeedM1(0);\n  robo.setSpeedM2(0);\n  delay(1000);\n\n  // Turn right\n  robo.setSpeedM1(100);\n  robo.setSpeedM2(-100);\n  delay(1500);\n\n  // Stop\n  robo.setSpeedM1(0);\n  robo.setSpeedM2(0);\n  delay(1000);\n\n  // Dribbling\n  robo.setSpeedM3(100);  // forward\n  delay(2000);\n  robo.setSpeedM3(0);  // stop\n  delay(1000);\n  robo.setSpeedM3(-100);  // reverse\n  delay(2000);\n  robo.setSpeedM3(0);  // stop\n  delay(1000);\n\n  // Stop and wait\n  robo.setSpeedM3(0);\n  while (1) {}\n}\n冒頭のdelay(2000)によって，電源ONから2秒後にモータが動き出す．\n5行目のrobo.setSpeedM1(100)は，左モータ(M1)のデューティ比を100に設定する． デューティ比は，PWM制御においてHighの電圧を加える割合であり，雑に言えば，モータの回転速度を決めるパラメータである1． このプログラムでは\\(-255--255\\)の値を指定できる（が定格電圧の関係で最大100としている）． 0で停止，正で前進方向，負で後退方向に回転する．\nrobo.は，setup関数の前に作成したScroboクラスのインスタンスで，setSpeedM1関数を使うために必要である． 6行目のsetSpeedM2は同じく右モータ（M2）のデューティ比を設定する．\n7行目でこの状態を1.5秒維持する． この，delayを書かないと何が起こるか？ 5行目から6行目へ移るタイムラグはマイコンの実行速度によるが，体感としてはほぼゼロである． 同じように10行目まで，ほぼタイムラグなしで実行される． つまり，モータのデューティ比を100に設定した次の瞬間，10, 11行目でデューティ比を0に設定し直すことになり，モータは回転しない．\n26行目以降のように，左右のモータで速度差をつけると，ロボットを旋回させることができる． 58行目のドリブルモータ（M3）の回転速度・方向指定も走行モータと同様である．\n最後に，69行目は無限ループであり，ひととおりモータテストが終わったら，loop関数の内容を繰り返すこと無くロボットを停止させる動作を実現している．"
+    "objectID": "posts/scrobo/index.html#サンプルプログラムの解説",
+    "href": "posts/scrobo/index.html#サンプルプログラムの解説",
+    "title": "実験Ⅰ テーマ3 開発環境設定とサンプルプログラムの解説",
+    "section": "サンプルプログラムの解説",
+    "text": "サンプルプログラムの解説\n実験機のサンプルプログラムには，センサ機能を確認するsensor_checkerと，駆動機能を確認するmotor_checkerが含まれる．これらについて解説する．\n\n共通部\n#include &lt;Scrobo.h&gt;\n\nScrobo robo = Scrobo();\n\nvoid setup()\n{\n  Serial.begin(38400); // Open serial port at 38400 [baud]\n  Serial.println(\"Connected\");\n}\nモータ制御用ライブラリをインクルードし，インスタンス（robo）を作る． これはScroboライブラリで用意されている関数を使う場合に必要となる．\n7行目で通信速度38400 baudでPCとマイコン間のシリアル通信を開始する．\n\n\nsensor_checker\n1秒ごとに6個のアナログセンサの出力値を読み取り，シリアル通信に書き込むプログラムである．\nvoid loop()\n{\n  // Read analog inputs\n  int ball_left = analogRead(0);   // A0\n  int ball_center = analogRead(1); // A1\n  int ball_right = analogRead(2);  // A2\n  int range = analogRead(3);       // A3\n  int floor_left = analogRead(6);  // A6\n  int floor_right = analogRead(7); // A7\n\n  // Serial outputs\n  Serial.print(ball_left);\n  Serial.print(\",\");\n  Serial.print(ball_center);\n  Serial.print(\",\");\n  Serial.print(ball_right);\n  Serial.print(\",\");\n  Serial.print(range);\n  Serial.print(\",\");\n  Serial.print(floor_left);\n  Serial.print(\",\");\n  Serial.print(floor_right);\n  Serial.println();\n\n  // Wait 1 sec\n  delay(1000);\n}\n4–9行目は，各行でひとつずつアナログセンサの値を読み取り，整数型の変数に格納している． analogRead関数の引数は，センサが接続されているマイコンボードのポート番号である． センサは0–5 Vの電圧値を出力し，それをマイコンのA/D変換ボードが0–1023の整数値に変換する．\n12–23行目は，変数に保存したデータをシリアル通信でPC宛に送信している． ダブルクォートで囲われた(“,”)は，区切り用のカンマを書くため． printlnは末尾に改行を付加するプリント文で，23行目は改行のみを送信している．\n最後に，26行目にて1000ミリ秒 = 1秒待機する． 1秒経過後にloop関数の内容をすべて実行し終えたことになり，センサ出力を読み取る冒頭部に戻る．\n\n\nmotor_checker\n左右の走行モータ（左: M1, 右: M2）とドリブルモータ（M3）の動作テストを行うプログラムである．\nvoid loop() {\n  delay(2000);\n\n  // Move forward\n  robo.setSpeedM1(100);\n  robo.setSpeedM2(100);\n  delay(1500);\n\n  // Stop\n  robo.setSpeedM1(0);\n  robo.setSpeedM2(0);\n  delay(1000);\n\n  // Move backward\n  robo.setSpeedM1(-100);\n  robo.setSpeedM2(-100);\n  delay(1500);\n\n  // Stop\n  robo.setSpeedM1(0);\n  robo.setSpeedM2(0);\n  delay(1000);\n\n  // Zigzag\n  for (int i = 0; i &lt; 4; i++) {\n    robo.setSpeedM1(100);\n    robo.setSpeedM2(30);\n    delay(500);\n    robo.setSpeedM1(30);\n    robo.setSpeedM2(100);\n    delay(500);\n  }\n  robo.setSpeedM1(0);\n  robo.setSpeedM2(0);\n  delay(1000);\n\n  // Turn left\n  robo.setSpeedM1(-100);\n  robo.setSpeedM2(100);\n  delay(1500);\n\n  // Stop\n  robo.setSpeedM1(0);\n  robo.setSpeedM2(0);\n  delay(1000);\n\n  // Turn right\n  robo.setSpeedM1(100);\n  robo.setSpeedM2(-100);\n  delay(1500);\n\n  // Stop\n  robo.setSpeedM1(0);\n  robo.setSpeedM2(0);\n  delay(1000);\n\n  // Dribbling\n  robo.setSpeedM3(100);  // forward\n  delay(2000);\n  robo.setSpeedM3(0);  // stop\n  delay(1000);\n  robo.setSpeedM3(-100);  // reverse\n  delay(2000);\n  robo.setSpeedM3(0);  // stop\n  delay(1000);\n\n  // Stop and wait\n  robo.setSpeedM3(0);\n  while (1) {}\n}\n冒頭のdelay(2000)によって，電源ONから2秒後にモータが動き出す．\n5行目のrobo.setSpeedM1(100)は，左モータ(M1)のデューティ比を100に設定する． デューティ比は，PWM制御においてHighの電圧を加える割合であり，雑に言えば，モータの回転速度を決めるパラメータである1． このプログラムでは\\(-255--255\\)の値を指定できる（が定格電圧の関係で最大100としている）． 0で停止，正で前進方向，負で後退方向に回転する．\nrobo.は，setup関数の前に作成したScroboクラスのインスタンスで，setSpeedM1関数を使うために必要である． 6行目のsetSpeedM2は同じく右モータ（M2）のデューティ比を設定する．\n7行目でこの状態を1.5秒維持する． この，delayを書かないと何が起こるか？ 5行目から6行目へ移るタイムラグはマイコンの実行速度によるが，体感としてはほぼゼロである． 同じように10行目まで，ほぼタイムラグなしで実行される． つまり，モータのデューティ比を100に設定した次の瞬間，10, 11行目でデューティ比を0に設定し直すことになり，モータは回転しない．\n26行目以降のように，左右のモータで速度差をつけると，ロボットを旋回させることができる． 58行目のドリブルモータ（M3）の回転速度・方向指定も走行モータと同様である．\n最後に，69行目は無限ループであり，ひととおりモータテストが終わったら，loop関数の内容を繰り返すこと無くロボットを停止させる動作を実現している．"
   },
   {
     "objectID": "posts/scrobo/index.html#footnotes",
     "href": "posts/scrobo/index.html#footnotes",
-    "title": "実験Ⅰ テーマ3 サッカーロボットのサンプルプログラム",
+    "title": "実験Ⅰ テーマ3 開発環境設定とサンプルプログラムの解説",
     "section": "Footnotes",
     "text": "Footnotes\n\n\n電気電子工学科の諸兄は理屈からしっかり学んでほしい．↩︎"
   },
@@ -333,7 +340,7 @@
     "href": "index.html",
     "title": "Kunihisa Okano",
     "section": "",
-    "text": "Okano Lab\n  \n  \n    \n     質問箱\n  \n  \n     My old Google site\n  \n\n  \n  \n\n\n岡野 訓尚 （おかの くにひさ）\n立命館大学 理工学部 電気電子工学科の准教授．博士（工学）． IEEE，計測自動制御学会，システム制御情報学会，電子情報通信学会，電気学会の会員．\nKunihisa Okano is an Associate Professor at the Department of Electrical and Electronic Engineering, College of Science and Engineering, Ritsumeikan University.\n\n\n\n 1-1-1 Noji-higashi, Kusatsu, Shiga 525-8577 Japan | 〒525-8577 滋賀県草津市野路東1-1-1\n kokano at fc.ritsumei.ac.jp"
+    "text": "Okano Lab\n  \n  \n    \n     質問箱\n  \n  \n     My old Google site\n  \n\n  \n  \n\n\n岡野 訓尚 （おかの くにひさ）\n立命館大学 理工学部 電気電子工学科の准教授．博士（工学）． IEEE，計測自動制御学会，システム制御情報学会，電子情報通信学会の会員．\nKunihisa Okano is an Associate Professor at the Department of Electrical and Electronic Engineering, College of Science and Engineering, Ritsumeikan University.\n\n\n\n 1-1-1 Noji-higashi, Kusatsu, Shiga 525-8577 Japan | 〒525-8577 滋賀県草津市野路東1-1-1\n kokano at fc.ritsumei.ac.jp"
   },
   {
     "objectID": "index.html#contact",
@@ -354,20 +361,20 @@
     "href": "lectures.html",
     "title": "Lectures",
     "section": "",
-    "text": "電気電子工学実験Ⅰ，立命館大学理工学部電気電子工学科（B2），2022–2024, 2026\nプログラミング演習，立命館大学理工学部電気電子工学科（B2），2025–継続\n情報と職業（2/14），立命館大学理工学部電気電子工学科（B2），2024–継続\n情報処理，立命館大学理工学部電気電子工学科（B1），2024–継続\n微分方程式，立命館大学理工学部電気電子工学科（B1），2022–継続\n制御工学，立命館大学理工学部電気電子工学科（B3），2022–継続\n電気電子工学概論（オムニバス），立命館大学理工学部電気電子工学科（B1），2021–継続\n数理プログラミング演習（5/14），立命館大学理工学部電気電子工学科（B3），2021–継続\n電気電子工学入門，立命館大学理工学部電気電子工学科（B1），2021–継続"
+    "text": "電気電子工学実験Ⅰ，立命館大学理工学部電気電子工学科（B2），2022–2024, 2026\nプログラミング演習，立命館大学理工学部電気電子工学科（B2），2025–継続\n情報と職業（2/14），立命館大学理工学部電気電子工学科（B2），2024–継続\n微分方程式，立命館大学理工学部電気電子工学科（B1），2022–継続\n制御工学，立命館大学理工学部電気電子工学科（B3），2022–継続\n電気電子工学概論（オムニバス），立命館大学理工学部電気電子工学科（B1），2021–継続\n数理プログラミング演習（5/14），立命館大学理工学部電気電子工学科（B3），2021–継続\n電気電子工学入門，立命館大学理工学部電気電子工学科（B1），2021–継続"
   },
   {
     "objectID": "lectures.html#現在の担当講義",
     "href": "lectures.html#現在の担当講義",
     "title": "Lectures",
     "section": "",
-    "text": "電気電子工学実験Ⅰ，立命館大学理工学部電気電子工学科（B2），2022–2024, 2026\nプログラミング演習，立命館大学理工学部電気電子工学科（B2），2025–継続\n情報と職業（2/14），立命館大学理工学部電気電子工学科（B2），2024–継続\n情報処理，立命館大学理工学部電気電子工学科（B1），2024–継続\n微分方程式，立命館大学理工学部電気電子工学科（B1），2022–継続\n制御工学，立命館大学理工学部電気電子工学科（B3），2022–継続\n電気電子工学概論（オムニバス），立命館大学理工学部電気電子工学科（B1），2021–継続\n数理プログラミング演習（5/14），立命館大学理工学部電気電子工学科（B3），2021–継続\n電気電子工学入門，立命館大学理工学部電気電子工学科（B1），2021–継続"
+    "text": "電気電子工学実験Ⅰ，立命館大学理工学部電気電子工学科（B2），2022–2024, 2026\nプログラミング演習，立命館大学理工学部電気電子工学科（B2），2025–継続\n情報と職業（2/14），立命館大学理工学部電気電子工学科（B2），2024–継続\n微分方程式，立命館大学理工学部電気電子工学科（B1），2022–継続\n制御工学，立命館大学理工学部電気電子工学科（B3），2022–継続\n電気電子工学概論（オムニバス），立命館大学理工学部電気電子工学科（B1），2021–継続\n数理プログラミング演習（5/14），立命館大学理工学部電気電子工学科（B3），2021–継続\n電気電子工学入門，立命館大学理工学部電気電子工学科（B1），2021–継続"
   },
   {
     "objectID": "lectures.html#過去の担当講義",
     "href": "lectures.html#過去の担当講義",
     "title": "Lectures",
     "section": "過去の担当講義",
-    "text": "過去の担当講義\n\nAdvanced Topics in Control Engineering, Graduate School of Science and Engineering, Ritsumeikan University, 2023–2024\n電気電子数学演習，立命館大学理工学部電気電子工学科（B3），2021–2023\n電子回路演習，立命館大学理工学部電気電子工学科（B3），2021–2022\n電気電子工学実験Ⅲ，立命館大学理工学部電気電子工学科（B3），2021\n電子回路（共担），岡山大学工学部機械システム系学科（B2），2019–2020\n微分方程式１，２，岡山大学工学部機械システム系学科（B1），2017–2018\nシステム工学で何ができるか（オムニバス），岡山大学工学部（B2），2017\n工学基礎実験実習，岡山大学工学部機械システム系学科（B1），2017–2020\nシステム工学総合２，岡山大学工学部機械システム系学科（B3），2016–2020\n電気回路２及び演習（演習），東京理科大学工学部電気工学科（B2），2016\n電気工学実験1-A，東京理科大学工学部電気工学科（B3），2016"
+    "text": "過去の担当講義\n\n情報処理，立命館大学理工学部電気電子工学科（B1），2024–2025\nAdvanced Topics in Control Engineering, Graduate School of Science and Engineering, Ritsumeikan University, 2023–2024\n電気電子数学演習，立命館大学理工学部電気電子工学科（B3），2021–2023\n電子回路演習，立命館大学理工学部電気電子工学科（B3），2021–2022\n電気電子工学実験Ⅲ，立命館大学理工学部電気電子工学科（B3），2021\n電子回路（共担），岡山大学工学部機械システム系学科（B2），2019–2020\n微分方程式１，２，岡山大学工学部機械システム系学科（B1），2017–2018\nシステム工学で何ができるか（オムニバス），岡山大学工学部（B2），2017\n工学基礎実験実習，岡山大学工学部機械システム系学科（B1），2017–2020\nシステム工学総合２，岡山大学工学部機械システム系学科（B3），2016–2020\n電気回路２及び演習（演習），東京理科大学工学部電気工学科（B2），2016\n電気工学実験1-A，東京理科大学工学部電気工学科（B3），2016"
   }
 ]

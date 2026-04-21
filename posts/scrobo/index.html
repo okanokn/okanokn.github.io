@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2026-03-20">
 
-<title>実験Ⅰ テーマ3 サッカーロボットのサンプルプログラム – Kunihisa Okano’s page</title>
+<title>実験Ⅰ テーマ3 開発環境設定とサンプルプログラムの解説 – Kunihisa Okano’s page</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -76,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-705bd0ea787264f4dbb6c222770bd963.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -192,13 +192,13 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#scroboライブラリのインストール" id="toc-scroboライブラリのインストール" class="nav-link active" data-scroll-target="#scroboライブラリのインストール">Scroboライブラリのインストール</a></li>
+  <li><a href="#arduino-ideのインストール" id="toc-arduino-ideのインストール" class="nav-link active" data-scroll-target="#arduino-ideのインストール">Arduino IDEのインストール</a></li>
+  <li><a href="#scroboライブラリのインストール" id="toc-scroboライブラリのインストール" class="nav-link" data-scroll-target="#scroboライブラリのインストール">Scroboライブラリのインストール</a></li>
+  <li><a href="#usbシリアル変換icのドライバー" id="toc-usbシリアル変換icのドライバー" class="nav-link" data-scroll-target="#usbシリアル変換icのドライバー">USBシリアル変換ICのドライバー</a></li>
   <li><a href="#サンプルプログラムの解説" id="toc-サンプルプログラムの解説" class="nav-link" data-scroll-target="#サンプルプログラムの解説">サンプルプログラムの解説</a>
   <ul class="collapse">
   <li><a href="#共通部" id="toc-共通部" class="nav-link" data-scroll-target="#共通部">共通部</a></li>
-  </ul></li>
-  <li><a href="#sensor_checker" id="toc-sensor_checker" class="nav-link" data-scroll-target="#sensor_checker">sensor_checker</a>
-  <ul class="collapse">
+  <li><a href="#sensor_checker" id="toc-sensor_checker" class="nav-link" data-scroll-target="#sensor_checker">sensor_checker</a></li>
   <li><a href="#motor_checker" id="toc-motor_checker" class="nav-link" data-scroll-target="#motor_checker">motor_checker</a></li>
   </ul></li>
   </ul>
@@ -209,7 +209,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">実験Ⅰ テーマ3 サッカーロボットのサンプルプログラム</h1>
+<h1 class="title">実験Ⅰ テーマ3 開発環境設定とサンプルプログラムの解説</h1>
   <div class="quarto-categories">
     <div class="quarto-category">arduino</div>
   </div>
@@ -235,7 +235,11 @@ window.Quarto = {
 </header>
 
 
-<p>電気電子工学実験Ⅰ テーマ3で使用するサッカーロボットの<a href="./sample.zip">サンプルプログラム</a>について解説する．</p>
+<p>電気電子工学実験Ⅰ テーマ3の開発環境を自分のPCで整える方法と，<a href="./sample.zip">サンプルプログラム</a>について解説する．</p>
+<section id="arduino-ideのインストール" class="level2">
+<h2 class="anchored" data-anchor-id="arduino-ideのインストール">Arduino IDEのインストール</h2>
+<p><a href="../../posts/arduinoide/index.html">別記事</a>を参照してArduino IDEをインストールする．</p>
+</section>
 <section id="scroboライブラリのインストール" class="level2">
 <h2 class="anchored" data-anchor-id="scroboライブラリのインストール">Scroboライブラリのインストール</h2>
 <p>モータ制御用のライブラリをインストールする．</p>
@@ -244,8 +248,14 @@ window.Quarto = {
 <li>Arduino IDEのメニューから，「スケッチ＞ライブラリをインクルード＞.ZIP形式のライブラリをインストール」を選び，ダウンロードしたzipファイルを選択する． <img src="libraryinclusion.webp" class="img-fluid" alt="ZIP形式のライブラリをインストール"></li>
 </ol>
 </section>
+<section id="usbシリアル変換icのドライバー" class="level2">
+<h2 class="anchored" data-anchor-id="usbシリアル変換icのドライバー">USBシリアル変換ICのドライバー</h2>
+<p>実験機に搭載されているマイコンをPCで認識するために，USBシリアル通信用IC（CH340）のドライバーをインストールする必要がある． 現行のOSであれば，インターネットに接続した状態でPCとマイコンをUSBケーブルでつなぎ，しばらく待てば自動的にインストールが行われる．</p>
+<p>手動でインストールしたい場合は，たとえば<a href="https://akizukidenshi.com/catalog/g/g113544/">秋月電子のページ</a>などでインストール方法が紹介されている．</p>
+</section>
 <section id="サンプルプログラムの解説" class="level2">
 <h2 class="anchored" data-anchor-id="サンプルプログラムの解説">サンプルプログラムの解説</h2>
+<p>実験機の<a href="./sample.zip">サンプルプログラム</a>には，センサ機能を確認する<code>sensor_checker</code>と，駆動機能を確認する<code>motor_checker</code>が含まれる．これらについて解説する．</p>
 <section id="共通部" class="level3">
 <h3 class="anchored" data-anchor-id="共通部">共通部</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a><span class="pp">#include </span><span class="im">&lt;Scrobo.h&gt;</span></span>
@@ -260,9 +270,8 @@ window.Quarto = {
 <p>モータ制御用ライブラリをインクルードし，インスタンス（<code>robo</code>）を作る． これはScroboライブラリで用意されている関数を使う場合に必要となる．</p>
 <p>7行目で通信速度38400 baudでPCとマイコン間のシリアル通信を開始する．</p>
 </section>
-</section>
-<section id="sensor_checker" class="level2">
-<h2 class="anchored" data-anchor-id="sensor_checker">sensor_checker</h2>
+<section id="sensor_checker" class="level3">
+<h3 class="anchored" data-anchor-id="sensor_checker">sensor_checker</h3>
 <p>1秒ごとに6個のアナログセンサの出力値を読み取り，シリアル通信に書き込むプログラムである．</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1"></a><span class="dt">void</span> loop<span class="op">()</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="op">{</span></span>
@@ -294,9 +303,10 @@ window.Quarto = {
 <p>4–9行目は，各行でひとつずつアナログセンサの値を読み取り，整数型の変数に格納している． <code>analogRead</code>関数の引数は，センサが接続されているマイコンボードのポート番号である． センサは0–5 Vの電圧値を出力し，それをマイコンのA/D変換ボードが0–1023の整数値に変換する．</p>
 <p>12–23行目は，変数に保存したデータをシリアル通信でPC宛に送信している． ダブルクォートで囲われた(“,”)は，区切り用のカンマを書くため． <code>println</code>は末尾に改行を付加するプリント文で，23行目は改行のみを送信している．</p>
 <p>最後に，26行目にて1000ミリ秒 = 1秒待機する． 1秒経過後に<code>loop</code>関数の内容をすべて実行し終えたことになり，センサ出力を読み取る冒頭部に戻る．</p>
+</section>
 <section id="motor_checker" class="level3">
 <h3 class="anchored" data-anchor-id="motor_checker">motor_checker</h3>
-<p>左右の走行モータ（M1, M2）とドリブルモータ（M3）の動作テストを行うプログラムである．</p>
+<p>左右の走行モータ（左: M1, 右: M2）とドリブルモータ（M3）の動作テストを行うプログラムである．</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource c number-lines code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1"></a><span class="dt">void</span> loop<span class="op">()</span> <span class="op">{</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>  delay<span class="op">(</span><span class="dv">2000</span><span class="op">);</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a></span>
